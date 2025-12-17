@@ -6,7 +6,7 @@ metadata:
   labels:
     app: iris-api
 spec:
-  [cite_start]replicas: 2 # Haute disponibilité : 2 instances de l'API [cite: 34]
+  replicas: 2 # Haute disponibilité : 2 instances de l'API [cite: 34]
   selector:
     matchLabels:
       app: iris-api

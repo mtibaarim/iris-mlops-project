@@ -1,0 +1,13 @@
+# Ce fichier expose votre application pour qu'elle soit accessible.
+apiVersion: v1
+kind: Service
+metadata:
+  name: iris-api-service
+spec:
+  selector:
+    app: iris-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: NodePort # Permet d'accéder à l'API depuis l'extérieur du cluster

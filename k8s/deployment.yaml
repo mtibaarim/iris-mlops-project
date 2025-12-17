@@ -1,0 +1,23 @@
+# Ce fichier définit comment l'application doit tourner (nombre de répliques, image, ports).
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iris-api-deployment
+  labels:
+    app: iris-api
+spec:
+  [cite_start]replicas: 2 # Haute disponibilité : 2 instances de l'API [cite: 34]
+  selector:
+    matchLabels:
+      app: iris-api
+  template:
+    metadata:
+      labels:
+        app: iris-api
+    spec:
+      containers:
+      - name: iris-ml-container
+        image: iris-mlops-app:latest
+        imagePullPolicy: Never # Pour utiliser l'image locale (Minikube)
+        ports:
+        - containerPort: 8000
